@@ -68,6 +68,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Alias for workshops relationship for better readability.
+     */
+    public function organizedWorkshops(): BelongsToMany
+    {
+        return $this->workshops();
+    }
+
+    /**
      * Scope a query to only include active users.
      */
     public function scopeActive(Builder $query): void

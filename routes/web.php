@@ -46,11 +46,33 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
+// User Management routes
+Route::middleware(['auth'])->group(function () {
+    Route::resource('users', App\Http\Controllers\UserController::class);
+    
+    // Additional user management routes
+    Route::prefix('users')->name('users.')->group(function () {
+        Route::post('/{user}/activate', [App\Http\Controllers\UserController::class, 'activate'])->name('activate');
+        Route::post('/{user}/deactivate', [App\Http\Controllers\UserController::class, 'deactivate'])->name('deactivate');
+        Route::post('/{user}/toggle-status', [App\Http\Controllers\UserController::class, 'toggleStatus'])->name('toggle-status');
+        Route::post('/{user}/change-role', [App\Http\Controllers\UserController::class, 'changeRole'])->name('change-role');
+        Route::post('/bulk-activate', [App\Http\Controllers\UserController::class, 'bulkActivate'])->name('bulk-activate');
+        Route::post('/bulk-deactivate', [App\Http\Controllers\UserController::class, 'bulkDeactivate'])->name('bulk-deactivate');
+        Route::get('/export', [App\Http\Controllers\UserController::class, 'export'])->name('export');
+    });
+    
+    // User API endpoints
+    Route::prefix('api/users')->name('api.users.')->group(function () {
+        Route::get('/by-role', [App\Http\Controllers\UserController::class, 'getUsersByRole'])->name('by-role');
+        Route::get('/search', [App\Http\Controllers\UserController::class, 'search'])->name('search');
+        Route::get('/statistics', [App\Http\Controllers\UserController::class, 'getStatistics'])->name('statistics');
+    });
+});
+
 // Placeholder routes for other controllers (to be implemented in other tasks)
 Route::middleware(['auth'])->group(function () {
     Route::resource('workshops', 'WorkshopController');
     Route::resource('participants', 'ParticipantController');
-    Route::resource('users', 'UserController');
     Route::resource('roles', 'RoleController');
     Route::resource('email-templates', 'EmailTemplateController');
 });
