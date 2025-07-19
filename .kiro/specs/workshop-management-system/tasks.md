@@ -256,6 +256,7 @@
 - [x] 7. Implement email template management
 
 
+
   - Create EmailTemplate model with Workshop relationship
   - Implement EmailTemplateController with CRUD operations
   - Add template variable substitution functionality
@@ -286,31 +287,43 @@
   - Create template variable substitution using Blade or str_replace
   - Support dynamic variables like {{ name }}, {{ ticket_code }}, {{ qr_code_url }}
   - Add template validation to ensure proper variable syntax
+
   - Integrate with email sending workflow
   - _Requirements: 7.2, 7.3, 7.5_
 
-- [ ] 8. Implement check-in system with QR code scanning
+- [x] 8. Implement check-in system with QR code scanning
+
+
   - Create CheckInController for QR code processing
   - Implement QR code scanning and validation
   - Add participant verification and check-in workflow
   - Create check-in interface for staff members
   - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5_
 
-- [ ] 8.1 Create CheckInController
+- [x] 8.1 Create CheckInController
+
+
   - Implement QR code scanning endpoint
   - Add participant lookup by ticket code
   - Create check-in processing with status updates
   - Handle invalid QR codes and already checked-in participants
   - _Requirements: 6.1, 6.2, 6.3, 6.4, 10.2_
 
-- [ ] 8.2 Create CheckInService
+- [x] 8.2 Create CheckInService
+
+
   - Implement QR code decoding and validation logic
   - Add participant verification and status checking
   - Handle check-in workflow and database updates
   - Write unit tests for check-in service methods
   - _Requirements: 6.1, 6.2, 6.5, 10.5_
 
-- [ ] 8.3 Create check-in interface
+- [x] 8.3 Create check-in interface
+
+
+
+
+
   - Build web interface for QR code scanning
   - Add participant information display after successful scan
   - Implement error handling for invalid codes
@@ -324,14 +337,20 @@
   - Add revenue calculation and reporting
   - _Requirements: 8.1, 8.2, 8.3, 8.4, 8.5_
 
-- [ ] 9.1 Create StatisticsService
+- [x] 9.1 Create StatisticsService
+
+
+
   - Implement workshop metrics calculation (participants, check-ins, revenue)
   - Add methods for aggregating data across all workshops
   - Create revenue calculation based on ticket types and payments
   - Write unit tests for all statistics calculations
   - _Requirements: 8.1, 8.4, 10.5_
 
-- [ ] 9.2 Create DashboardController
+- [x] 9.2 Create DashboardController
+
+
+
   - Implement dashboard data aggregation
   - Add filtering by workshop and date ranges
   - Create API endpoints for real-time data updates
